@@ -1,0 +1,67 @@
+[
+    {
+      "traceId": "5982fe77008310cc80f1da5e10147517",
+      "name": "get",
+      "id": "bd7a977555f6b982",
+      "timestamp": 1458702548467000,
+      "duration": 386000,
+      "localEndpoint": {
+        "serviceName": "zipkin-query",
+        "ipv4": "192.168.1.2",
+        "port": 9411
+      },
+      "annotations": [],
+      "tags": {
+        "bu": "bu_1"
+      }
+    },
+    {
+      "traceId": "5982fe77008310cc80f1da5e10147517",
+      "name": "get-traces",
+      "id": "ebf33e1a81dc6f71",
+      "parentId": "bd7a977555f6b982",
+      "timestamp": 1458702548478000,
+      "duration": 354374,
+      "localEndpoint": {
+        "serviceName": "zipkin-query",
+        "ipv4": "192.168.1.2",
+        "port": 9411
+      },
+      "tags": {
+        "bu": "bu_1",
+        "lc": "JDBCSpanStore",
+        "request": "QueryRequest{serviceName=zipkin-query, spanName=null,
+annotations=[], binaryAnnotations={}, minDuration=null, maxDuration=null,
+endTs=1458702548478, lookback=86400000, limit=1}"
+      }
+    },
+    {
+      "traceId": "5982fe77008310cc80f1da5e10147517",
+      "name": "query",
+      "id": "be2d01e33cc78d97",
+      "parentId": "ebf33e1a81dc6f71",
+      "timestamp": 1458702548786000,
+      "duration": 13000,
+      "localEndpoint": {
+        "serviceName": "zipkin-query",
+        "ipv4": "192.168.1.2",
+        "port": 9411
+      },
+      "remoteEndpoint": {
+        "serviceName": "spanstore-jdbc",
+        "ipv4": "127.0.0.1",
+        "port": 3306
+      },
+      "annotations": [],
+      "tags": {
+        "bu": "bu_1",
+        "jdbc.query": "select distinct `zipkin_spans`.`trace_id` from `zipkin_spans`
+join `zipkin_annotations` on (`zipkin_spans`.`trace_id` = 
+`zipkin_annotations`.`trace_id` and `zipkin_spans`.`id` = 
+`zipkin_annotations`.`span_id`) where (`zipkin_annotations`.`endpoint_service_name` = 
+? and `zipkin_spans`.`start_ts` between ? and ?) order by `zipkin_spans`.`start_ts` 
+desc limit ?",
+        "sa": "true"
+      }
+    }
+  ]

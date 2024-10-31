@@ -1,0 +1,75 @@
+{
+  "resourceSpans": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "host.name",
+            "value": { "stringValue": "web01.sflanders.net" }
+          },
+          {
+            "key": "service.name",
+            "value": { "stringValue": "frontend" }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "io.opentelemetry.armeria-1.3",
+            "version": "2.3.0-alpha"
+          },
+          "spans": [
+            {
+              "traceId": "80dcfdf0f3fe1a032e53facf9ae2ceca",
+              "spanId": "f041a77c36ad23ae",
+              "parentSpanId": "f4426a2e1f99e8a0",
+              "flags": 1,
+              "name": "GET /",
+              "kind": 2,
+              "startTimeUnixNano": "1718649061103266000",
+              "endTimeUnixNano": "1718649061105462875",
+              "attributes": [
+                {
+                  "key": "http.response.status_code",
+                  "value": { "intValue": "200" }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": { "stringValue": "GET" }
+                },
+                {
+                  "key": "http.route",
+                  "value": { "stringValue": "/" }
+                }
+              ],
+              "status": {}
+            },
+            {
+              "traceId": "80dcfdf0f3fe1a032e53facf9ae2ceca",
+              "spanId": "f4426a2e1f99e8a0",
+              "parentSpanId": "",
+              "flags": 1,
+              "name": "GET",
+              "kind": 3,
+              "startTimeUnixNano": "1718649061098436000",
+              "endTimeUnixNano": "1718649061105925208",
+              "attributes": [
+                {
+                  "key": "http.response.status_code",
+                  "value": { "intValue": "200" }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": { "stringValue": "GET" }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ],
+      "schemaUrl": "https://opentelemetry.io/schemas/1.24.0"
+    }
+  ]
+}
