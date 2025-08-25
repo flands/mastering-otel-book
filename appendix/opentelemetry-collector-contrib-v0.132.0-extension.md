@@ -1,45 +1,45 @@
-| extension | status | supported signals |
-| -- | -- | -- |
-| ackextension | alpha] |     |
-| asapauthextension | beta] |     |
-| awsproxy | beta] |     |
-| azureauthextension | alpha] |     |
-| basicauthextension | beta] |     |
-| bearertokenauthextension | beta] |     |
-| cgroupruntimeextension | alpha] |     |
-| datadogextensiondatadogextension | alpha] |     |
-| encoding | development] |     |
-| encoding | alpha] |     |
-| encoding | alpha] |     |
-| encoding | alpha] |     |
-| encoding | alpha] |     |
-| encoding | alpha] |     |
-| encoding | alpha] |     |
-| encodingencoding | alpha] |     |
-| encoding | beta] |     |
-| encoding | alpha] |     |
-| googleclientauthextension | beta] |     |
-| headerssetterextension | alpha] |     |
-| healthcheckextension | unmaintained] |     |
-| healthcheckv2extension | development] |     |
-| httpforwarderextension | beta] |     |
-| jaegerremotesampling | alpha] |     |
-| k8sleaderelector | alpha] |     |
-| oauth2clientauthextension | beta] |     |
-| oauth2clientauthextensionobserver | development] |     |
-| observer | beta] |     |
-| observer | beta] |     |
-| observer | unmaintained] |     |
-| observer | beta] |     |
-| observer | alpha] |     |
-| observer | alpha] |     |
-| observeroidcauthextension | beta] |     |
-| opampcustommessagesopampextension | alpha] |     |
-| pprofextension | beta] |     |
-| remotetapextension | development] |     |
-| sigv4authextension | beta] |     |
-| solarwindsapmsettingsextension | development] |     |
-| storage | alpha] |     |
-| storage | beta] |     |
-| storage | alpha] |     |
-| sumologicextension | alpha] |     |
+| extension | status |
+| -- | -- |
+| ackextension | alpha |
+| asapauthextension | beta |
+| awsproxy | beta |
+| azureauthextension | alpha |
+| basicauthextension | beta |
+| bearertokenauthextension | beta |
+| cgroupruntimeextension | alpha |
+| datadogextension/internaldatadogextension | alpha |
+| encoding/avrologencodingextension | development |
+| encoding/awscloudwatchmetricstreamsencodingextension | alpha |
+| encoding/awslogsencodingextension | alpha |
+| encoding/googlecloudlogentryencodingextension | alpha |
+| encoding/jaegerencodingextension | alpha |
+| encoding/jsonlogencodingextension | alpha |
+| encoding/otlpencodingextension | alpha |
+| encodingencoding/skywalkingencodingextension | alpha |
+| encoding/textencodingextension | beta |
+| encoding/zipkinencodingextension | alpha |
+| googleclientauthextension | beta |
+| headerssetterextension | alpha |
+| healthcheckextension | unmaintained |
+| healthcheckv2extension | development |
+| httpforwarderextension | beta |
+| jaegerremotesampling | alpha |
+| k8sleaderelector | alpha |
+| oauth2clientauthextension | beta |
+| oauth2clientauthextension/testdataobserver/cfgardenobserver | development |
+| observer/dockerobserver | beta |
+| observer/ecsobserver | beta |
+| observer/ecstaskobserver | unmaintained |
+| observer/hostobserver | beta |
+| observer/k8sobserver | alpha |
+| observer/kafkatopicsobserver | alpha |
+| observeroidcauthextension | beta |
+| opampcustommessagesopampextension | alpha |
+| pprofextension | beta |
+| remotetapextension | development |
+| sigv4authextension | beta |
+| solarwindsapmsettingsextension | development |
+| storage/dbstorage | alpha |
+| storage/filestorage | beta |
+| storage/redisstorageextension | alpha |
+| sumologicextension | alpha |

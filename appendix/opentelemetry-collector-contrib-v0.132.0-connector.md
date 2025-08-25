@@ -1,26 +1,32 @@
-| connector | status | supported signals |
-| -- | -- | -- |
-| countconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| datadogconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| exceptionsconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| failoverconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| grafanacloudconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| otlpjsonconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| roundrobinconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| routingconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| servicegraphconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| signaltometricsconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| spanmetricsconnector | Receiver | Pipeline Type]   |
-|  |  |     |
-| sumconnector | Receiver | Pipeline Type]   |
-|  |  |     |
+| connector | exporter signal | receiver signal | status |
+| -- | -- | -- | -- |
+| countconnector | traces | metrics | alpha |
+| countconnector | metrics | metrics | alpha |
+| countconnector | logs | metrics | alpha |
+| countconnector | profiles | metrics | alpha |
+| datadogconnector | traces | metrics | beta |
+| datadogconnector | traces | traces | beta |
+| exceptionsconnector | traces | metrics | alpha |
+| exceptionsconnector | traces | logs | alpha |
+| failoverconnector | traces | traces | alpha |
+| failoverconnector | metrics | metrics | alpha |
+| failoverconnector | logs | logs | alpha |
+| grafanacloudconnector | traces | metrics | alpha |
+| otlpjsonconnector | logs | metrics | alpha |
+| otlpjsonconnector | logs | traces | alpha |
+| otlpjsonconnector | logs | logs | alpha |
+| roundrobinconnector | traces | traces | beta |
+| roundrobinconnector | metrics | metrics | beta |
+| roundrobinconnector | logs | logs | beta |
+| routingconnector | traces | traces | alpha |
+| routingconnector | metrics | metrics | alpha |
+| routingconnector | logs | logs | alpha |
+| servicegraphconnector | traces | metrics | alpha |
+| signaltometricsconnector | traces | metrics | alpha |
+| signaltometricsconnector | logs | metrics | alpha |
+| signaltometricsconnector | metrics | metrics | alpha |
+| signaltometricsconnector | profiles | metrics | alpha |
+| spanmetricsconnector | traces | metrics | alpha |
+| sumconnector | traces | metrics | alpha |
+| sumconnector | metrics | metrics | alpha |
+| sumconnector | logs | metrics | alpha |
