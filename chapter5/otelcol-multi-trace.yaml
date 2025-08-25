@@ -1,0 +1,35 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  attributes/1:
+    actions:
+      - key: test
+        action: insert
+        value: 1
+
+  attributes/2:
+    actions:
+      - key: test
+        action: insert
+        value: 2
+
+exporters:
+  debug/1:
+    #verbosity: detailed
+  debug/2:
+    #verbosity: detailed
+
+service:
+  pipelines:
+    traces/debug/1:
+      receivers: [otlp]
+      processors: [attributes/1]
+      exporters: [debug/1]
+    traces/debug/2:
+      receivers: [otlp]
+      processors: [attributes/2]
+      exporters: [debug/2]

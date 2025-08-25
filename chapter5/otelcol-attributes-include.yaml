@@ -1,0 +1,43 @@
+receivers:
+  zipkin:
+
+processors:
+  attributes/bu1:
+    include:
+      match_type: strict
+      attributes:
+      - key: bu
+        value: bu_1
+    actions:
+      - key: env
+        value: dev
+        action: insert
+      - key: jdbc.query
+        action: delete
+      - key: db.request
+        from_attribute: request
+        action: insert
+      - key: request
+        action: delete
+      - key: db.request
+        pattern: .*limit=(?P<db_request_limit>.*)\}
+        action: extract
+      - key: db_request_limit
+        converted_type: int
+        action: convert
+
+exporters:
+  debug:
+    verbosity: detailed
+#  otlp:
+#    endpoint: bu1.company.com:4317
+#  zipkin:
+#    endpoint: https://bu2.company.com:9411/api/v2/spans
+
+service:
+  pipelines:
+    traces:
+      receivers: [zipkin]
+      processors: [attributes/bu1]
+      exporters: [debug]
+ #     exporters: [otlp]

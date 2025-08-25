@@ -1,0 +1,32 @@
+...
+connectors:
+  # instead of using the forward connector, it may be possible to
+  # use the insert action of the metrictransform processor depending
+  # on the rules required
+  forward:
+
+processors:
+  # rename system.cpu.usage to system.cpu.usage_time
+  # for all system.cpu metrics, rename the label state to cpu_state
+  # changes like this would need to occur for every metric impacted
+  metrictransform:
+    - include: system.cpu.usage
+      action: update
+      new_name: system.cpu.usage_time
+    - include: ^system\.cpu\.
+      action: update
+      operations:
+        - action: update_label
+          label: state
+          new_label: cpu_state
+
+service:
+  pipelines:
+    metrics/new:
+      receivers: [otlp]
+      processors: []
+      exporters: [otlp, forward]
+    metrics/original:
+      receivers: [forward]
+      processors: [metricstransform]
+      exporters: [otlp]

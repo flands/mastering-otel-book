@@ -1,0 +1,28 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+        #endpoint: 127.0.0.1:4317
+
+processors:
+  batch:
+  # Not set as the limit_mib is not known
+  # Highly recommended for production environments
+  # If defined, ensure it is the first processor in *each* pipeline 
+  # Also, do not forget to set the GOMEMLIMIT environment variable
+  #memory_limiter:
+  #  check_interval: 1s
+  #  limit_mib: <TODO>
+
+exporters:
+  debug:
+    verbosity: detailed
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      #processors: [memory_limiter, batch]
+      exporters: [debug]

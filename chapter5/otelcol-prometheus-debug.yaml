@@ -1,0 +1,30 @@
+receivers:
+  prometheus/internal:
+    config:
+      scrape_configs:
+      - job_name: 'otel-collector'
+        scrape_interval: 10s
+        static_configs:
+        - targets: ["127.0.0.1:8888"]
+        metric_relabel_configs:
+          - source_labels: [ __name__ ]
+            regex: '.*grpc_io.*'
+            action: drop
+
+processors:
+  # Add or remove detectors as applicable to your environment
+  # Important: By default, received resource metadata will be overridden.
+  #            Set "override" to "false" if this is not desired.
+  #            In addition, order matters, the first detector to insert wins.
+  resourcedetection:
+    detectors: [env, eks, ecs, ec2, aks, azure, gcp, system]
+
+exporters:
+  debug:
+
+service:
+  pipelines:
+    metrics:
+      receivers: [prometheus/internal]
+      processors: [resourcedetection]
+      exporters: [debug]

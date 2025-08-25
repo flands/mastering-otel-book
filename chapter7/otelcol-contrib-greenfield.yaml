@@ -1,0 +1,52 @@
+extensions:
+  healthcheck:
+
+receivers:
+  hostmetric:
+    scrapers:
+      cpu:
+      disk:
+      memory:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+
+  # Assumes the Collector has 2GB of memory – adjust as needed
+  # Also remember to set the GOMEMLIMIT environment variable
+  # See Chapter 5 for more information
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 1900
+
+  # Add or remove detectors as applicable to your environment
+  # Important: By default, received resource metadata will be overridden.
+  #            Set "override" to "false" if this is not desired.
+  #            In addition, order matters, the first detector to insert wins.
+  resourcedetection:
+    detectors: [env, eks, ecs, ec2, aks, azure, gcp, system]
+
+exporters:
+  otlp:
+    traces_endpoint: traces.mycluster:4317
+    metrics_endpoint: metrics.mycluster:4317
+    logs_endpoint: logs.mycluster:4317
+
+service:
+  extensions: [healthcheck]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, resourcedetection]
+      exporters: [otlp]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, resourcedetection]
+      exporters: [otlp]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, resourcedetection]
+      exporters: [otlp]

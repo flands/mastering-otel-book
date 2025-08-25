@@ -1,0 +1,35 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+
+  # Assumes the Collector has 2GB of memory – adjust as needed
+  # Also remember to set the GOMEMLIMIT environment variable
+  # See Chapter 5 for more information
+
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 1900
+
+exporters:
+  otlp:
+    endpoint: mycluster:4317
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlp]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlp]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlp]

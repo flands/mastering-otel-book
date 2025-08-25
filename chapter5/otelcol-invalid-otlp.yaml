@@ -1,0 +1,11 @@
+receivers:
+  otlp:
+
+exporters:
+  debug:
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug]
