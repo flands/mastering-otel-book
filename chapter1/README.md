@@ -2,7 +2,7 @@
 
 ## Table 1.1
 
-Cell values fixed (thanks @gijs-vh)
+Cell values fixed (thanks [@gijs-vh](https://github.com/gijs-vh))
 
 | | Awareness Known | Awareness Unknown |
 | -- | -- | -- |
